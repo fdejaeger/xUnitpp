@@ -25,7 +25,7 @@ function(xunit_compiler_options target)
 		target_compile_definitions(${target} PRIVATE _CRT_SECURE_NO_WARNINGS)
 	endif()
 
-	if(MINGW OR CMAKE_COMPILER_IS_GNUCXX OR ${CMAKE_CXX_COMPILER_ID} STREQUAL "Clang")
+    if(MINGW OR CMAKE_COMPILER_IS_GNUCXX OR ${CMAKE_CXX_COMPILER_ID} STREQUAL "Clang" OR ${CMAKE_CXX_COMPILER_ID} STREQUAL "AppleClang")
 		# Remove __stdcall
 		target_compile_definitions(${target} PUBLIC "__stdcall=")
 
